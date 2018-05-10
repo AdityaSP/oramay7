@@ -34,6 +34,9 @@ Make sure your cluster is running, you can check with minikube status.
 
 If your cluster is not running, enter minikube start first.
 
+
+minikube start --vm-driver=xhyve --docker-env http_proxy=http://mac-101.corp.com:3128 --docker-env https_proxy=http://mac-101.corp.com:3128 --docker-env no_proxy=192.168.99.0/24
+
 ------------------------------------------------------------------------
 Command lookup 
 ------------------------------------------------------------------------
