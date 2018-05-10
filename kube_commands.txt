@@ -1,4 +1,7 @@
+------------------------------------------------------------------------
 ### Kubectl
+------------------------------------------------------------------------
+
 Linux: https://storage.googleapis.com/kubernetes-release/release/v1.6.1/bin/linux/amd64/kubectl
 
 MacOS: https://storage.googleapis.com/kubernetes-release/release/v1.6.1/bin/darwin/amd64/kubectl
@@ -6,14 +9,18 @@ MacOS: https://storage.googleapis.com/kubernetes-release/release/v1.6.1/bin/darw
 Windows: 
 https://github.com/eirslett/kubectl-windows/releases/download/v1.6.3/kubectl.exe
 
+------------------------------------------------------------------------
 ### Minikube
+------------------------------------------------------------------------
 Project URL: https://github.com/kubernetes/minikube
 
 Latest Release and download instructions: https://github.com/kubernetes/minikube/releases
 
 VirtualBox: http://www.virtualbox.org
 
+------------------------------------------------------------------------
 ### Minikube on windows:
+------------------------------------------------------------------------
 Download the latest minikube-version.exe
 
 Rename the file to minikube.exe and put it in C:\minikube
@@ -27,7 +34,9 @@ Make sure your cluster is running, you can check with minikube status.
 
 If your cluster is not running, enter minikube start first.
 
-
+------------------------------------------------------------------------
+Command lookup 
+------------------------------------------------------------------------
 minikube start
 kubectl get node
 kubectl get pod
