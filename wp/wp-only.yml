@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: wp-only
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: wp-only
+    spec:
+      containers:
+      - name: wp
+        image: wordpress:4-php7.0
+        ports:
+        - name: http-port
+          containerPort: 80
+        env:
+          - name: WORDPRESS_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: password
+          - name: WORDPRESS_DB_HOST
+            value: wp-db-service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wp-blog-service
+spec:
+  ports:
+  - port: 8881
+    nodePort: 31100
+    targetPort: http-port
+    protocol: TCP
+  selector:
+    app: wp-only
+  type: NodePort
