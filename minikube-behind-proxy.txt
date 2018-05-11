@@ -1,23 +1,23 @@
-export {http,https,ftp}_proxy=http://www-proxy.us.oracle.com:80
-export {HTTP,HTTPS,FTP}_PROXY=${http_proxy}
-export no_proxy="localhost,127.0.0.1,localaddress,192.168.99.101"
-export NO_PROXY=${no_proxy}
+#export {http,https,ftp}_proxy=http://www-proxy.us.oracle.com:80
+#export {HTTP,HTTPS,FTP}_PROXY=${http_proxy}
+#export no_proxy="localhost,127.0.0.1,localaddress,192.168.99.101"
+#export NO_PROXY=${no_proxy}
 
 minikube delete
 
-minikube start --docker-env HTTP_PROXY=${http_proxy} --docker-env HTTPS_PROXY=${https_proxy} --docker-env NO_PROXY=192.168.99.0/24
+minikube start --docker-env HTTP_PROXY=http://www-proxy.us.oracle.com:80 --docker-env HTTPS_PROXY=http://www-proxy.us.oracle.com:80 --docker-env NO_PROXY=192.168.99.0/24
 
 minikube ssh -- systemctl show docker --property=Environment --no-pager
 
 ----------------------------------------------------------------------
 Windows (may be, need to test)
-set http_proxy=http://www-proxy.us.oracle.com:80
-set https_proxy=http://www-proxy.us.oracle.com:80
-set ftp_proxy=http://www-proxy.us.oracle.com:80
-set no_proxy="localhost,127.0.0.1,localaddress,192.168.99.101"
+#set http_proxy=http://www-proxy.us.oracle.com:80
+#set https_proxy=http://www-proxy.us.oracle.com:80
+#set ftp_proxy=http://www-proxy.us.oracle.com:80
+#set no_proxy="localhost,127.0.0.1,localaddress,192.168.99.101"
 
 minikube delete
 
-minikube start --docker-env HTTP_PROXY=%http_proxy% --docker-env HTTPS_PROXY=%http_proxy% --docker-env NO_PROXY=192.168.99.0/24
+minikube start --docker-env HTTP_PROXY=http://www-proxy.us.oracle.com:80 --docker-env HTTPS_PROXY=http://www-proxy.us.oracle.com:80 --docker-env NO_PROXY=192.168.99.0/24
 
 minikube ssh -- systemctl show docker --property=Environment --no-pager
